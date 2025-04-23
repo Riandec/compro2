@@ -14,17 +14,14 @@ public class vote {
         }
 
         int max = 0;
+        int winner = 0;
         for (int i = 0; i < n; i++) {
             if (num[i] > max) {
                 max = num[i];
+                winner = i+1;
             }
         }
-
-        for (int i = 0; i < n; i++) {
-            if (num[i] == max) {
-                System.out.println(i+1);
-            }
-        }
+        System.out.println(winner);
         System.out.println(max);
     }
 }
