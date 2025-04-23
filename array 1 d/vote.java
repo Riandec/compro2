@@ -18,7 +18,7 @@ public class vote {
         for (int i = 0; i < n; i++) {
             if (num[i] > max) {
                 max = num[i];
-                winner = i+1;
+                winner = i + 1;
             }
         }
         System.out.println(winner);
