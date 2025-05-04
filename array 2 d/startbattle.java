@@ -26,12 +26,10 @@ public class startbattle {
                 if (arr[r - 1][c - 1] == 1) {
                     count_ship++;
                     arr[r - 1][c - 1] = -1;
-
                 } else if (arr[r - 1][c - 1] == -1) {
                     count_ship2++;
-                }
-
-                if (arr[r - 1][c - 1] == 0) {
+                    
+                } else if (arr[r - 1][c - 1] == 0) {
                     count_miss++;
                     arr[r - 1][c - 1] = -2;
                 } else if (arr[r - 1][c - 1] == -2) {

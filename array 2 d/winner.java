@@ -1,90 +1,61 @@
-
 import java.util.Scanner;
 
 public class winner {
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int R = sc.nextInt();
         int C = sc.nextInt();
-        int[][] map = new int[R + 1][C + 1];
+        int[][] map = new int[R][C];
         int totalShip = 0;
-        for (int r = 1; r <= R; ++r) {
-            for (int c = 1; c <= C; ++c) {
-                map[r][c] = sc.nextInt();
-                totalShip += map[r][c];
+        for (int i = 0; i < R; i++) {
+            for (int j = 0; j < C; j++) {
+                map[i][j] = sc.nextInt();
+                totalShip += map[i][j];
             }
         }
-        /*
-        Shot map (initial value = false)
-        define:
-            false -> not shot
-            true -> shot
-         */
-        boolean[][] shotMap = new boolean[R + 1][C + 1];
-
-        // Counter
-        int first = 0; // first hit
-        int firstMiss = 0; // first miss
-        int same = 0; // the same hit
-        int sameMiss = 0; // the same miss
-        int out = 0; // out of map
-
-        int firsthit = -1;
-        int lasthit = -1;
-
         int K = sc.nextInt();
-        for (int k = 0; k < K; ++k) {
+        int count_ship = 0;
+        int count_miss = 0;
+        int count_ship2 = 0;
+        int count_miss2 = 0;
+        int count_out = 0;
+        int first_hit = -1;
+        int last_hit = -1;
+        for (int i = 0; i < K; i++) {
             int r = sc.nextInt();
             int c = sc.nextInt();
-            boolean validRow = (1 <= r) && (r <= R);
-            boolean validCol = (1 <= c) && (c <= C);
-
-            // out of map
-            if (!validRow || !validCol) {
-                ++out;
-                continue;
-            }
-
-            boolean hit = (map[r][c] == 1);
-            boolean wasShot = shotMap[r][c];
-            if (hit) {
-                // first hit
-                if (!wasShot) {
-                    ++first;
-                    shotMap[r][c] = true;
-
-                    if (firsthit == -1) {
-                        firsthit = k + 1;
+            if (r > 0 && c > 0 && r <= R && c <= C) {
+                if (map[r - 1][c - 1] == 1) {
+                    count_ship++;
+                    if (first_hit == -1) {
+                        first_hit = i + 1;
                     }
-
-                    lasthit = k + 1;
-                } // the same hit
-                else {
-                    ++same;
+                    last_hit = i + 1;
+                    map[r - 1][c - 1] = -1;
+                } else if (map[r - 1][c - 1] == -1) {
+                    count_ship2++;
+                    
+                } else if (map[r - 1][c - 1] == 0) {
+                    count_miss++;
+                    map[r - 1][c - 1] = -2;
+                } else if (map[r - 1][c - 1] == -2) {
+                    count_miss2++;
                 }
             } else {
-                // first miss
-                if (!wasShot) {
-                    ++firstMiss;
-                    shotMap[r][c] = true;
-                } // the same miss
-                else {
-                    ++sameMiss;
-                }
+                count_out++;
             }
         }
-        System.out.println(first);
-        System.out.println(firstMiss);
-        System.out.println(same);
-        System.out.println(sameMiss);
-        System.out.println(out);
+        System.out.println(count_ship);
+        System.out.println(count_miss);
+        System.out.println(count_ship2);
+        System.out.println(count_miss2);
+        System.out.println(count_out);
 
-        int remainShip = totalShip - first;
-        if (remainShip > 0) {
-            System.out.println("battleship " + firsthit);
+        int remainShip = totalShip - count_ship;
+        if (remainShip == 0) {
+            System.out.println("attacker " + last_hit);
         } else {
-            System.out.println("attacker " + lasthit);
+            System.out.println("battleship " + first_hit);
         }
     }
 }
