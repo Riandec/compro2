@@ -39,6 +39,7 @@ public class FoodContents2 {
         while(option != 0){
             if(option == 1){
                 f.printInfo();
+                System.out.println();
             }else if(option == 2){
                 String new_ingredient = sc.next();
                 int new_weight = sc.nextInt();
