@@ -1,4 +1,4 @@
-/*
+
 import java.util.Scanner;
 
 class Food{
@@ -44,4 +44,3 @@ public class FoodContents1 {
         }
     }
 }
-*/
