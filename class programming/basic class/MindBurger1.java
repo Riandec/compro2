@@ -16,7 +16,7 @@ class Burger {
         }else if (num>3){
             this.numCheese = 3;
         }else{
-            this.numCheese = numCheese;
+            this.numCheese = num;
         }
         this.price = 49+(20*this.numCheese);
  }
