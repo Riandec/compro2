@@ -1,4 +1,3 @@
-/*
 import java.util.Scanner;
 
 class Theater{
@@ -90,4 +89,3 @@ public class Theater1 {
         t.printInfo();
     }
 }
-*/
