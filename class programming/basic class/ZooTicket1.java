@@ -1,4 +1,3 @@
-/*
 import java.util.Scanner;
 
 class ZooTicket{
@@ -59,4 +58,3 @@ public class ZooTicket1 {
         ticket.summarize();
     }
 }
-*/
