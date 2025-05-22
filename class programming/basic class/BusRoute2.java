@@ -1,4 +1,3 @@
-/*
 import java.util.Scanner;
 
 class Route{
@@ -40,4 +39,4 @@ public class BusRoute2 {
         Route r = new Route(name,distances);
         r.summarizeRoute();
     }
-}*/
+}
