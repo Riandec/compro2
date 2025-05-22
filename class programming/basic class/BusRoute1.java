@@ -1,4 +1,3 @@
-/*
 import java.util.Scanner;
 
 class Route{
@@ -36,4 +35,4 @@ public class BusRoute1 {
             r.getStopInfo(num);
         }
     }
-}*/
+}
