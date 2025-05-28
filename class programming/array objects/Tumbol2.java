@@ -46,16 +46,13 @@ public class Tumbol2 {
             t[i] = new Tumbol(district, latitude, longitude, population);
         }
         int total = 0;
-        int[][] budget = new int[k][];
         for(int i=0;i<k;i++){
             int n = sc.nextInt();
-            budget[i] = new int[n];
+            int[] budget = new int[n];
             for(int j=0;j<n;j++){
-                budget[i][j] = sc.nextInt();
+                budget[j] = sc.nextInt();
             }
-        }
-        for(int i=0;i<k;i++){
-            total += t[i].allocateBudget(budget[i]);
+            total += t[i].allocateBudget(budget);
         }
         System.out.println(total);
     }
