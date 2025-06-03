@@ -44,7 +44,6 @@ public class neogun {
         } else if (option == 2) {
             int max = Integer.MIN_VALUE;
             for (int i = 1; i <= n; i++) {
-                // System.out.print(mostDamage[i] + " ");
                 if (mostDamage[i] > max) {
                     max = mostDamage[i];
                 }
