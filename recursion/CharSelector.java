@@ -7,8 +7,8 @@ public class CharSelector {
         if(s.length() == 0){
             return "";
         }else{
-            int change = k[s.length()-1];
-            return s.charAt((s.length()-1)-change) +"";
+            int change = k[s.length()-1] % s.length();
+            return selectChar(s.substring(0, s.length()-1), k) + s.charAt((s.length()-1)-change);
         }
     }
 
